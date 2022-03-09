@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowser.UI", "WebBrowser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowser.Logic", "WebBrowser.Logic\WebBrowser.Logic.csproj", "{365A8E91-0CF8-45B2-AD5C-6E6AA869D8C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowser.Data", "WebBrowser.Data\WebBrowser.Data.csproj", "{14CECFFA-3352-4ED2-A704-0C2DCA97B019}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{365A8E91-0CF8-45B2-AD5C-6E6AA869D8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{365A8E91-0CF8-45B2-AD5C-6E6AA869D8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{365A8E91-0CF8-45B2-AD5C-6E6AA869D8C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14CECFFA-3352-4ED2-A704-0C2DCA97B019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14CECFFA-3352-4ED2-A704-0C2DCA97B019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14CECFFA-3352-4ED2-A704-0C2DCA97B019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14CECFFA-3352-4ED2-A704-0C2DCA97B019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
