@@ -24,7 +24,20 @@ namespace WebBrowser.UI
 
         private void exitBrowserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
+        }
+
+        private void addressTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                searchBtn_Click(sender, e);
+            }
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            webBrowser.Navigate(addressTextBox.Text);
         }
     }
 }
