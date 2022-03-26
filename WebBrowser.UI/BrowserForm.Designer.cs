@@ -205,7 +205,7 @@
             // addressTextBox
             // 
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(300, 25);
+            this.addressTextBox.Size = new System.Drawing.Size(600, 25);
             this.addressTextBox.Text = "type a URL";
             this.addressTextBox.ToolTipText = "type a url";
             this.addressTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.addressTextBox_KeyUp);
