@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl = new System.Windows.Forms.TabControl();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,17 +40,9 @@
             this.manageBookmarksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabControl
-            // 
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl.Location = new System.Drawing.Point(0, 27);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(775, 768);
-            this.tabControl.TabIndex = 2;
             // 
             // menuStrip
             // 
@@ -62,7 +53,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(775, 24);
-            this.menuStrip.TabIndex = 3;
+            this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -148,13 +139,22 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // tabControl
+            // 
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl.Location = new System.Drawing.Point(0, 24);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(775, 768);
+            this.tabControl.TabIndex = 3;
+            // 
             // BrowserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 795);
-            this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.menuStrip);
             this.Name = "BrowserForm";
             this.Text = "BrowserForm";
             this.menuStrip.ResumeLayout(false);
@@ -165,7 +165,6 @@
         }
 
         #endregion
-        public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newTabToolStripMenuItem;
@@ -178,5 +177,6 @@
         private System.Windows.Forms.ToolStripMenuItem manageBookmarksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        public System.Windows.Forms.TabControl tabControl;
     }
 }
