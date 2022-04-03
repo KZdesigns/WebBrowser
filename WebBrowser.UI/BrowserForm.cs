@@ -46,10 +46,5 @@ namespace WebBrowser.UI
         {
             tabControl.TabPages.Remove(this.tabControl.SelectedTab);
         }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
     }
 }
