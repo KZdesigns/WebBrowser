@@ -17,27 +17,15 @@ namespace WebBrowser.UI
             InitializeComponent();
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tabControl_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show("This is a Web Browser application was developed using C#. Developer Credit: Kyle Zimmerman AU ID: kaz0010.");
-        }
-
-        private void exitBrowserToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void addressTextBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
+            if(e.Control && (e.KeyCode == Keys.T))
             {
-                searchBtn_Click(sender, e);
+                TabPage tab = new TabPage();
+                tab.Controls.Add(new WebBrowserTab());
+                tab.Text = "New Tab";
+                this.tabControl.TabPages.Add(tab);
             }
-        }
-
-        private void searchBtn_Click(object sender, EventArgs e)
-        {
-            webBrowser.Navigate(addressTextBox.Text);
         }
     }
 }
