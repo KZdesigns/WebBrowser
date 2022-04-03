@@ -15,17 +15,36 @@ namespace WebBrowser.UI
         public BrowserForm()
         {
             InitializeComponent();
+            createTab();
         }
 
-        private void tabControl_KeyDown(object sender, KeyEventArgs e)
+        private void exitBrowserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(e.Control && (e.KeyCode == Keys.T))
-            {
-                TabPage tab = new TabPage();
-                tab.Controls.Add(new WebBrowserTab());
-                tab.Text = "New Tab";
-                this.tabControl.TabPages.Add(tab);
-            }
+            Application.Exit();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This is a Web Browser application was developed using C#. Developer Credit: Kyle Zimmerman AU ID: kaz0010.");
+        }
+
+        private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            createTab();
+        }
+
+        private void createTab()
+        {
+            WebBrowserTab newTab = new WebBrowserTab();
+            TabPage newPage = new TabPage("New Tab");
+            newTab.Dock = DockStyle.Fill;
+            newPage.Controls.Add(newTab);
+            tabControl.TabPages.Add(newPage);
+        }
+
+        private void closeCurrentTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl.TabPages.Remove(this.tabControl.SelectedTab);
         }
     }
 }
