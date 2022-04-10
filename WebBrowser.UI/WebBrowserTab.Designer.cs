@@ -123,6 +123,7 @@
             this.bookmarkBtn.Name = "bookmarkBtn";
             this.bookmarkBtn.Size = new System.Drawing.Size(23, 22);
             this.bookmarkBtn.Text = "bookmark";
+            this.bookmarkBtn.Click += new System.EventHandler(this.bookmarkBtn_Click);
             // 
             // webBrowser
             // 
@@ -133,6 +134,7 @@
             this.webBrowser.ScriptErrorsSuppressed = true;
             this.webBrowser.Size = new System.Drawing.Size(768, 514);
             this.webBrowser.TabIndex = 3;
+            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             this.webBrowser.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser_Navigated);
             // 
             // WebBrowserTab
