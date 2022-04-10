@@ -46,6 +46,10 @@ namespace WebBrowser.UI
         private void webBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             addressTextBox.Text = webBrowser.Url.ToString();
+            var item = new HistoryItem();
+            item.Title = webBrowser.DocumentTitle.ToString();
+            item.Date = DateTime.Now;
+            item.URL = webBrowser.Url.ToString();
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
@@ -64,10 +68,13 @@ namespace WebBrowser.UI
 
         private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
+            addressTextBox.Text = webBrowser.Url.ToString();
             var item = new HistoryItem();
             item.Title = webBrowser.DocumentTitle.ToString();
             item.Date = DateTime.Now;
             item.URL = webBrowser.Url.ToString();
+
+            HistoryManager.AddItem(item);
         }
     }
 }

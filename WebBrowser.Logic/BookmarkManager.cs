@@ -25,7 +25,7 @@ namespace WebBrowser.Logic
 
             if(count == items.Count)
             {
-                adapter.Insert(item.Title, item.URL);
+                adapter.Insert(item.URL, item.Title);
             } 
         }
 
