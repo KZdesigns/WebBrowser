@@ -28,5 +28,22 @@ namespace WebBrowser.UI
                 listBoxHistory.Items.Add(string.Format("[{0}] {1} ({2})", item.Date, item.Title, item.URL));
             }
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            var items = HistoryManager.GetItems();
+
+            string searchTerm = textBoxSearch.Text;
+
+            listBoxHistory.Items.Clear();
+
+            foreach(var item in items)
+            {
+                if(item.Title.Contains(searchTerm) || item.URL.Contains(searchTerm) || item.Date.ToString().Contains(searchTerm))
+                {
+                    listBoxHistory.Items.Add(string.Format("[{0}] {1} ({2})", item.Date, item.Title, item.URL));
+                }
+            }
+        }
     }
 }
