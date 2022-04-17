@@ -40,11 +40,18 @@ namespace WebBrowser.Logic
                 var item = new BookmarkItem();
                 item.Title = row.Title;
                 item.URL = row.URL;
+                item.Id = row.Id;
 
                 results.Add(item);
             }
 
             return results;
+        }
+
+        public static void Remove(BookmarkItem item)
+        {
+            var adapter = new BookmarksTableAdapter();
+            adapter.DeleteQuery(item.Id);
         }
 
     }
