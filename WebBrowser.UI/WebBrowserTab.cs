@@ -93,6 +93,7 @@ namespace WebBrowser.UI
             }
         }
 
+        // Bonus added for mouse hover
         private void hoverLabel_MouseLeave(object sender, EventArgs e)
         {
             hoverLabel.Text = "";
