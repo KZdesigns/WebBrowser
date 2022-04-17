@@ -31,6 +31,10 @@ namespace WebBrowser.UI
         private void searchBtn_Click(object sender, EventArgs e)
         {
             webBrowser.Navigate(addressTextBox.Text);
+            toolStripProgressBar.Value = 0;
+            toolStripStatusLabel1.Visible = true;
+            toolStripProgressBar.Visible = true;
+            toolStripStatusLabel1.Text = "Loading...";
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -75,6 +79,33 @@ namespace WebBrowser.UI
             item.URL = webBrowser.Url.ToString();
 
             HistoryManager.AddItem(item);
+        }
+
+        private void webBrowser_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
+        {
+            if(toolStripProgressBar.Value < 100)
+            {
+                toolStripProgressBar.Value = (int)((e.CurrentProgress / e.MaximumProgress) * 100);
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = "Done";
+            }
+        }
+
+        private void hoverLabel_MouseLeave(object sender, EventArgs e)
+        {
+            hoverLabel.Text = "";
+        }
+
+        private void hoverLabel_MouseHover(object sender, EventArgs e)
+        {
+            hoverLabel.Text = addressTextBox.Text;
+        }
+
+        private void hoverLabel_MouseEnter(object sender, EventArgs e)
+        {
+            hoverLabel.Text = addressTextBox.Text;
         }
     }
 }

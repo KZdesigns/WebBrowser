@@ -38,7 +38,12 @@
             this.searchBtn = new System.Windows.Forms.ToolStripButton();
             this.bookmarkBtn = new System.Windows.Forms.ToolStripButton();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.hoverLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip
@@ -135,17 +140,55 @@
             this.webBrowser.Size = new System.Drawing.Size(768, 514);
             this.webBrowser.TabIndex = 3;
             this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
+            this.webBrowser.ProgressChanged += new System.Windows.Forms.WebBrowserProgressChangedEventHandler(this.webBrowser_ProgressChanged);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripProgressBar,
+            this.toolStripStatusLabel1,
+            this.hoverLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 517);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(768, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripProgressBar
+            // 
+            this.toolStripProgressBar.Name = "toolStripProgressBar";
+            this.toolStripProgressBar.Size = new System.Drawing.Size(300, 16);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(112, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel";
+            this.toolStripStatusLabel1.Visible = false;
+            // 
+            // hoverLabel
+            // 
+            this.hoverLabel.AutoSize = false;
+            this.hoverLabel.Name = "hoverLabel";
+            this.hoverLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.hoverLabel.Size = new System.Drawing.Size(300, 17);
+            this.hoverLabel.MouseEnter += new System.EventHandler(this.hoverLabel_MouseEnter);
+            this.hoverLabel.MouseLeave += new System.EventHandler(this.hoverLabel_MouseLeave);
+            this.hoverLabel.MouseHover += new System.EventHandler(this.hoverLabel_MouseHover);
             // 
             // WebBrowserTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.toolStrip);
             this.Name = "WebBrowserTab";
             this.Size = new System.Drawing.Size(768, 539);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +204,9 @@
         private System.Windows.Forms.ToolStripButton bookmarkBtn;
         private System.Windows.Forms.WebBrowser webBrowser;
         public System.Windows.Forms.ToolStripTextBox addressTextBox;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel hoverLabel;
     }
 }
