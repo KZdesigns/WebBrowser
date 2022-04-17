@@ -45,5 +45,24 @@ namespace WebBrowser.UI
                 }
             }
         }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            var items = HistoryManager.GetItems();
+
+            foreach(var item in items)
+            {
+                HistoryManager.Remove(item);
+            }
+
+            listBoxHistory.Items.Clear();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            var items = HistoryManager.GetItems();
+            HistoryManager.Remove(items[listBoxHistory.SelectedIndex]);
+            HistoryManagerForm_Load(sender, e);
+        }
     }
 }

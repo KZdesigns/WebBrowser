@@ -27,11 +27,18 @@ namespace WebBrowser.Logic
                 item.Title = row.Title;
                 item.URL = row.URL;
                 item.Date = row.Date;
+                item.Id = row.Id;
 
                 results.Add(item);
             }
 
             return results;
+        }
+
+        public static void Remove(HistoryItem item)
+        {
+            var adapter = new HistoryTableAdapter();
+            adapter.Delete(item.Id, item.Date);
         }
     }
 }
