@@ -48,14 +48,7 @@ namespace WebBrowser.UI
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            var items = HistoryManager.GetItems();
-
-            foreach(var item in items)
-            {
-                HistoryManager.Remove(item);
-            }
-
-            listBoxHistory.Items.Clear();
+            Deletehistory();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -63,6 +56,18 @@ namespace WebBrowser.UI
             var items = HistoryManager.GetItems();
             HistoryManager.Remove(items[listBoxHistory.SelectedIndex]);
             HistoryManagerForm_Load(sender, e);
+        }
+
+        public void Deletehistory()
+        {
+            var items = HistoryManager.GetItems();
+
+            foreach (var item in items)
+            {
+                HistoryManager.Remove(item);
+            }
+
+            listBoxHistory.Items.Clear();
         }
     }
 }

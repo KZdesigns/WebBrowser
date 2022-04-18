@@ -16,6 +16,7 @@ namespace WebBrowser.UI
         {
             InitializeComponent();
             createTab();
+            createPlusTab();
         }
 
         private void exitBrowserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,7 +31,14 @@ namespace WebBrowser.UI
 
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createTab();
+            var lastIndex = this.tabConrtol.TabCount - 1;
+            WebBrowserTab newTab = new WebBrowserTab();
+            TabPage newPage = new TabPage("New Tab");
+            newTab.Dock = DockStyle.Fill;
+            newPage.Controls.Add(newTab);
+            this.tabConrtol.TabPages.Insert(lastIndex, newPage);
+            this.tabConrtol.SelectedIndex = lastIndex;
+            
         }
 
         private void createTab()
@@ -39,12 +47,29 @@ namespace WebBrowser.UI
             TabPage newPage = new TabPage("New Tab");
             newTab.Dock = DockStyle.Fill;
             newPage.Controls.Add(newTab);
-            tabControl.TabPages.Add(newPage);
+            tabConrtol.TabPages.Add(newPage);
         }
+
+        private void createPlusTab()
+        {
+            WebBrowserTab newTab = new WebBrowserTab();
+            TabPage newPage = new TabPage("+");
+            tabConrtol.TabPages.Add(newPage);
+        }
+
+
 
         private void closeCurrentTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl.TabPages.Remove(this.tabControl.SelectedTab);
+            if(this.tabConrtol.SelectedTab == null)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                tabConrtol.TabPages.Remove(this.tabConrtol.SelectedTab);
+            }
+            
         }
 
         private void manageHistoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,6 +82,35 @@ namespace WebBrowser.UI
         {
             var bookmarks = new BookmarkManagerForm();
             bookmarks.ShowDialog();
+        }
+
+        private void clearHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var history = new HistoryManagerForm();
+            history.Deletehistory();
+        }
+
+        // implemented half of the bonus with the + tab "button"
+        private void tabConrtol_MouseClick(object sender, MouseEventArgs e)
+        {
+            var lastIndex = this.tabConrtol.TabCount - 1;
+            if(tabConrtol.GetTabRect(lastIndex).Contains(e.Location))
+            {
+                WebBrowserTab newTab = new WebBrowserTab();
+                TabPage newPage = new TabPage("New Tab");
+                newTab.Dock = DockStyle.Fill;
+                newPage.Controls.Add(newTab);
+                this.tabConrtol.TabPages.Insert(lastIndex, newPage);
+                this.tabConrtol.SelectedIndex = lastIndex;
+            }
+        }
+
+        private void tabConrtol_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if(e.TabPageIndex == this.tabConrtol.TabCount -1)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
