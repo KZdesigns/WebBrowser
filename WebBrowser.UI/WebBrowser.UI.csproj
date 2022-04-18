@@ -128,15 +128,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WebBrowserDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="WebBrowserDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>WebBrowserDB.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
@@ -147,6 +138,17 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\WebBrowser.Data\WebBrowserDB.mdf">
+      <Link>WebBrowserDB.mdf</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\WebBrowser.Data\WebBrowserDB_log.ldf">
+      <Link>WebBrowserDB_log.ldf</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>WebBrowserDB.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
