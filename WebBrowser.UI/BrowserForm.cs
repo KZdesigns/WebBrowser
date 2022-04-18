@@ -32,19 +32,19 @@ namespace WebBrowser.UI
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var lastIndex = this.tabConrtol.TabCount - 1;
-            WebBrowserTab newTab = new WebBrowserTab();
+            
             TabPage newPage = new TabPage("New Tab");
+            WebBrowserTab newTab = new WebBrowserTab(newPage);
             newTab.Dock = DockStyle.Fill;
             newPage.Controls.Add(newTab);
             this.tabConrtol.TabPages.Insert(lastIndex, newPage);
-            this.tabConrtol.SelectedIndex = lastIndex;
-            
+            this.tabConrtol.SelectedIndex = lastIndex;  
         }
 
         private void createTab()
         {
-            WebBrowserTab newTab = new WebBrowserTab();
             TabPage newPage = new TabPage("New Tab");
+            WebBrowserTab newTab = new WebBrowserTab(newPage);
             newTab.Dock = DockStyle.Fill;
             newPage.Controls.Add(newTab);
             tabConrtol.TabPages.Add(newPage);
@@ -96,8 +96,8 @@ namespace WebBrowser.UI
             var lastIndex = this.tabConrtol.TabCount - 1;
             if(tabConrtol.GetTabRect(lastIndex).Contains(e.Location))
             {
-                WebBrowserTab newTab = new WebBrowserTab();
                 TabPage newPage = new TabPage("New Tab");
+                WebBrowserTab newTab = new WebBrowserTab(newPage);
                 newTab.Dock = DockStyle.Fill;
                 newPage.Controls.Add(newTab);
                 this.tabConrtol.TabPages.Insert(lastIndex, newPage);

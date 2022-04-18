@@ -13,9 +13,17 @@ namespace WebBrowser.UI
 {
     public partial class WebBrowserTab : UserControl
     {
+        TabPage page;
+
         public WebBrowserTab()
         {
             InitializeComponent();
+        }
+
+        public WebBrowserTab(TabPage pageIn)
+        {
+            InitializeComponent();
+            page = pageIn;
         }
 
         public static object WebBrowser { get; internal set; }
@@ -77,10 +85,11 @@ namespace WebBrowser.UI
             item.Title = webBrowser.DocumentTitle.ToString();
             item.Date = DateTime.Now;
             item.URL = webBrowser.Url.ToString();
-
+            page.Text = item.Title;
             HistoryManager.AddItem(item);
         }
 
+      
         private void webBrowser_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
         {
             if(toolStripProgressBar.Value < 100)
