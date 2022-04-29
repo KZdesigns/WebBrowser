@@ -74,7 +74,6 @@ namespace WebBrowser.UI
             var item = new BookmarkItem();
             item.Title = webBrowser.DocumentTitle.ToString();
             item.URL = webBrowser.Url.ToString();
-
             BookmarkManager.AddItem(item);
         }
 
@@ -89,7 +88,6 @@ namespace WebBrowser.UI
             HistoryManager.AddItem(item);
         }
 
-      
         private void webBrowser_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
         {
             if(toolStripProgressBar.Value < 100)
@@ -100,6 +98,18 @@ namespace WebBrowser.UI
             {
                 toolStripStatusLabel1.Text = "Done";
             }
+        }
+
+        // Bonus Print 
+        public void PrintHtml()
+        {
+            webBrowser.Print();
+        }
+
+        // Bonus Save HTML
+        public void SaveHtml()
+        {
+            webBrowser.ShowSaveAsDialog();
         }
 
         // Bonus added for mouse hover

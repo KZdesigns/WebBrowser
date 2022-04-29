@@ -12,6 +12,8 @@ namespace WebBrowser.UI
 {
     public partial class BrowserForm : Form
     {
+        private WebBrowserTab current;
+
         public BrowserForm()
         {
             InitializeComponent();
@@ -57,8 +59,6 @@ namespace WebBrowser.UI
             tabConrtol.TabPages.Add(newPage);
         }
 
-
-
         private void closeCurrentTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(this.tabConrtol.SelectedTab == null)
@@ -69,7 +69,6 @@ namespace WebBrowser.UI
             {
                 tabConrtol.TabPages.Remove(this.tabConrtol.SelectedTab);
             }
-            
         }
 
         private void manageHistoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,7 +93,7 @@ namespace WebBrowser.UI
         private void tabConrtol_MouseClick(object sender, MouseEventArgs e)
         {
             var lastIndex = this.tabConrtol.TabCount - 1;
-            if(tabConrtol.GetTabRect(lastIndex).Contains(e.Location))
+            if (tabConrtol.GetTabRect(lastIndex).Contains(e.Location))
             {
                 TabPage newPage = new TabPage("New Tab");
                 WebBrowserTab newTab = new WebBrowserTab(newPage);
@@ -104,13 +103,28 @@ namespace WebBrowser.UI
                 this.tabConrtol.SelectedIndex = lastIndex;
             }
         }
-
+        
         private void tabConrtol_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if(e.TabPageIndex == this.tabConrtol.TabCount -1)
             {
                 e.Cancel = true;
             }
+        }
+
+        // Bonus implementation print
+        private void printPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            current = (WebBrowserTab)tabConrtol.SelectedTab.GetNextControl(tabConrtol, true);
+            current.PrintHtml();
+        }
+
+        // Bonus implementation save html
+        private void savePageAsHTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            current = (WebBrowserTab)tabConrtol.SelectedTab.GetNextControl(tabConrtol, true);
+            current.SaveHtml();
         }
     }
 }
