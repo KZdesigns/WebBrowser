@@ -103,7 +103,7 @@ namespace WebBrowser.UI
         // Bonus Print 
         public void PrintHtml()
         {
-            webBrowser.Print();
+            webBrowser.ShowPrintPreviewDialog();
         }
 
         // Bonus Save HTML
